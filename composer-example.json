@@ -1,0 +1,76 @@
+{
+  "name": "my-vendor/my-package",
+  "description": "A sample package",
+  "type": "library",
+  "keywords": ["sample", "package"],
+  "homepage": "https://www.example.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "homepage": "https://www.example.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.example.com/issues"
+  },
+  "require": {
+    "monolog/monolog": "^2.0",
+    "symfony/console": "^4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0"
+  },
+  "conflict": {
+    "acme/old-package": "*"
+  },
+  "replace": {
+    "acme/legacy-package": ">=1.0 <2.0"
+  },
+  "provide": {
+    "acme/legacy-package": "1.0"
+  },
+  "suggest": {
+    "acme/optional-package": "A useful optional package"
+  },
+  "autoload": {
+    "psr-4": {
+      "MyVendor\\MyPackage\\": "src/"
+    },
+    "files": ["src/helpers.php"]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": "php artisan migrate",
+    "pre-update-cmd": "phpunit",
+    "post-update-cmd": "php artisan cache:clear"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.example.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "prefer-lowest": false,
+  "config": {
+    "vendor-dir": "custom-vendor-dir",
+    "github-oauth": {
+      "github.com": "YOUR_GITHUB_TOKEN"
+    }
+  },
+  "extra": {
+    "my-custom-key": "my-custom-value"
+  },
+  "archive": {
+    "type": "tar",
+    "exclude": ["tests/", "docs/"]
+  }
+}
